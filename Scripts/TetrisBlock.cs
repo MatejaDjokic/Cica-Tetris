@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class TetrisBlock : MonoBehaviour
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
     public Vector3 rotacionaTacka;
     public float prosloVreme;
     public float prosloDesnoVreme;
@@ -17,19 +15,6 @@ public class TetrisBlock : MonoBehaviour
     public static string rec = "Radovanj";
 
     Color[] colors = {
-=======
-=======
->>>>>>> parent of c581f1a (coommit)
-    public Vector3 rotationPoint;
-    public float previusTime;
-    float fallTime = 0.8f;
-    public static int height = 20;
-    public static int width = 10;
-    public Color[] colors = {
-<<<<<<< HEAD
->>>>>>> parent of c581f1a (coommit)
-=======
->>>>>>> parent of c581f1a (coommit)
         Color.blue,
         Color.red,
         Color.yellow,
@@ -66,8 +51,6 @@ public class TetrisBlock : MonoBehaviour
         {
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
             if (!ValidanKorakTetrisBloka())
-<<<<<<< HEAD
-<<<<<<< HEAD
                 transform.RotateAround(transform.TransformPoint(rotacionaTacka), new Vector3(0, 0, 1), -90);
         }
     }
@@ -121,12 +104,9 @@ public class TetrisBlock : MonoBehaviour
                     mrezaPolja[j, k - 1].transform.position -= new Vector3(0, 1, 0);
                 }
             }
-=======
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
->>>>>>> parent of c581f1a (coommit)
-=======
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
->>>>>>> parent of c581f1a (coommit)
+                transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
         }
     }
     void MenjajBoju()
