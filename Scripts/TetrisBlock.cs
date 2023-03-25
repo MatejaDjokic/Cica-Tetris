@@ -12,7 +12,9 @@ public class TetrisBlock : MonoBehaviour
     static int visina = 20;
     static int sirina = 10;
     public static Transform[,] mrezaPolja = new Transform[sirina, visina];
- Color[] colors = {
+    public static string rec = "Radovanj";
+
+    Color[] colors = {
         Color.blue,
         Color.red,
         Color.yellow,
@@ -22,7 +24,9 @@ public class TetrisBlock : MonoBehaviour
     private void Start()
     {
         MenjajBoju();
+        ZadajSlovoTetraminu(rec);
     }
+    
     void Update()
     {
         if (Time.time - prosloLevoVreme > levoVreme && Input.GetKey(KeyCode.LeftArrow))
@@ -58,18 +62,25 @@ public class TetrisBlock : MonoBehaviour
                 transform.RotateAround(transform.TransformPoint(rotacionaTacka), new Vector3(0, 0, 1), -90);
         }
     }
-    void CheckForLine()
+    void ZadajSlovoTetraminu(string str){
+        rec = str;
+        char slovo = rec[Random.Range(0,rec.Length)];
+        foreach(Transform dete in transform){
+            
+        }
+    }
+    void ProveriLiniju()
     {
         for (var i = visina - 1; i >= 0; i--)
         {
-            if (HasLine(i))
+            if (ImaLiniju(i))
             {
-                DeleteLine(i);
-                RowDown(i);
+                IzbrisiLiniju(i);
+                RedDole(i);
             }
         }
     }
-    bool HasLine(int i)
+    bool ImaLiniju(int i)
     {
         for (var j = 0; j < sirina; j++)
         {
@@ -80,7 +91,7 @@ public class TetrisBlock : MonoBehaviour
         }
         return true;
     }
-    void DeleteLine(int i)
+    void IzbrisiLiniju(int i)
     {
         for (var j = 0; j < sirina; j++)
         {
@@ -88,7 +99,7 @@ public class TetrisBlock : MonoBehaviour
             mrezaPolja[i, j] = null;
         }
     }
-    void RowDown(int i)
+    void RedDole(int i)
     {
         for (var j = 0; j < visina; j++)
         {
