@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class TetraminoSpawner : MonoBehaviour
 {
-    public GameObject[] tetramini;
-    void Start()
+public GameObject[] tetraminos;
+    void Update()
     {
-        NoviTetramin();
+        NewTetramino();
     }
 
-    public void NoviTetramin()
-    {
-        Instantiate(tetramini[Random.Range(0, tetramini.Length)], transform.position, Quaternion.identity);
+    void NewTetramino(){
+        Instantiate(tetraminos[Random.Range(0,tetraminos.Length)],transform.position,Quaternion.identity);
     }
 }

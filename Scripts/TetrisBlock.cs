@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TetrisBlock : MonoBehaviour
 {
+<<<<<<< HEAD
     public Vector3 rotacionaTacka;
     public float prosloVreme;
     public float prosloDesnoVreme;
@@ -15,50 +16,51 @@ public class TetrisBlock : MonoBehaviour
     public static string rec = "Radovanj";
 
     Color[] colors = {
+=======
+    public Vector3 rotationPoint;
+    public float previusTime;
+    float fallTime = 0.8f;
+    public static int height = 20;
+    public static int width = 10;
+    public Color[] colors = {
+>>>>>>> parent of c581f1a (coommit)
         Color.blue,
         Color.red,
         Color.yellow,
         Color.green,
         Color.magenta,
     };
-    private void Start()
-    {
+    private void Start() {
         MenjajBoju();
         ZadajSlovoTetraminu(rec);
     }
     
     void Update()
     {
-        if (Time.time - prosloLevoVreme > levoVreme && Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.position += new Vector3(-1, 0, 0);
             if (!ValidanKorakTetrisBloka())
                 transform.position += new Vector3(1, 0, 0);
-            prosloLevoVreme = Time.time;
         }
-        else if (Time.time - prosloDesnoVreme > desnoVrema && Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.position += new Vector3(1, 0, 0);
             if (!ValidanKorakTetrisBloka())
                 transform.position += new Vector3(-1, 0, 0);
-            prosloDesnoVreme = Time.time;
         }
-        else if (Time.time - prosloVreme > (Input.GetKey(KeyCode.DownArrow) ? vremePadanja / 10 : vremePadanja))
+        else if (Time.time - previusTime > (Input.GetKey(KeyCode.DownArrow) ? fallTime / 10 : fallTime))
         {
             transform.position += new Vector3(0, -1, 0);
             if (!ValidanKorakTetrisBloka())
-            {
                 transform.position += new Vector3(0, 1, 0);
-                DodajUMrezuPolja();
-                this.enabled = false;
-                FindAnyObjectByType<TetraminoSpawner>().NoviTetramin();
-            }
-            prosloVreme = Time.time;
+            previusTime = Time.time;
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            transform.RotateAround(transform.TransformPoint(rotacionaTacka), new Vector3(0, 0, 1), 90);
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
             if (!ValidanKorakTetrisBloka())
+<<<<<<< HEAD
                 transform.RotateAround(transform.TransformPoint(rotacionaTacka), new Vector3(0, 0, 1), -90);
         }
     }
@@ -112,27 +114,20 @@ public class TetrisBlock : MonoBehaviour
                     mrezaPolja[j, k - 1].transform.position -= new Vector3(0, 1, 0);
                 }
             }
+=======
+                transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
+>>>>>>> parent of c581f1a (coommit)
         }
     }
     void MenjajBoju()
     {
-        int randomIndex = Random.Range(0, colors.Length);
+            int randomIndex = Random.Range(0, colors.Length);
         foreach (Transform children in transform)
         {
             children.GetComponent<SpriteRenderer>().color = colors[randomIndex];
         }
     }
 
-    void DodajUMrezuPolja()
-    {
-        foreach (Transform children in transform)
-        {
-            int roundedY = Mathf.RoundToInt(children.transform.position.y);
-            int roundedX = Mathf.RoundToInt(children.transform.position.x);
-
-            mrezaPolja[roundedX, roundedY] = children;
-        }
-    }
     bool ValidanKorakTetrisBloka()
     {
         foreach (Transform children in transform)
@@ -140,11 +135,7 @@ public class TetrisBlock : MonoBehaviour
             int roundedY = Mathf.RoundToInt(children.transform.position.y);
             int roundedX = Mathf.RoundToInt(children.transform.position.x);
 
-            if (roundedX < 0 || roundedX >= sirina || roundedY <= 0 || roundedY >= visina)
-            {
-                return false;
-            }
-            if (mrezaPolja[roundedX, roundedY] != null)
+            if (roundedX < 0 || roundedX >= width || roundedY <= 0 || roundedY >= height)
             {
                 return false;
             }
