@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TetrisBlock : MonoBehaviour
 {
+
     public Vector3 rotacionaTacka;
     public float prosloVreme;
     public float prosloDesnoVreme;
@@ -14,7 +15,7 @@ public class TetrisBlock : MonoBehaviour
     public static Transform[,] mrezaPolja = new Transform[sirina, visina];
     public static string rec = "Radovanj";
 
-    Color[] colors = {
+    public Color[] colors = {
         Color.blue,
         Color.red,
         Color.yellow,
@@ -51,6 +52,7 @@ public class TetrisBlock : MonoBehaviour
         {
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
             if (!ValidanKorakTetrisBloka())
+
                 transform.RotateAround(transform.TransformPoint(rotacionaTacka), new Vector3(0, 0, 1), -90);
         }
     }
