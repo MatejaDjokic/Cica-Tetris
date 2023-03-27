@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class TetrisBlock : MonoBehaviour
+public class TetrisBlok : MonoBehaviour
 {
 
     Transform mrezaPoljaJI;
@@ -37,13 +37,14 @@ public class TetrisBlock : MonoBehaviour
         UnosniKonroler();
         KrajIgre();
     }
+
     void KrajIgre()
     {
         // AKO SE NALAZI BLOK CIJA Y KORDINATA JE JEDNAKA 16
         // IGRA JE GOTOVA
         for (int i = 0; i < sirina; i++)
         {
-            if (mrezaPolja[i, 15] != null)
+            if (mrezaPolja[i, 16] != null)
             {
                 krajIgre = true;
             }
@@ -71,6 +72,7 @@ public class TetrisBlock : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow) && Time.time - prosloVremeLevo > vremePadanjaPomeranjaLevo)
         {
+
             // AKO JE STRELICA LEVO PRITISNUTA POMERA BLOK ZA 1 U LEVO
             transform.position += new Vector3(-1, 0, 0);
 
@@ -108,9 +110,10 @@ public class TetrisBlock : MonoBehaviour
             {
                 transform.position += new Vector3(0, 1, 0);
                 DodajUMrezuPolja();
-                IzbrisiRed();
-                this.enabled = false;
                 FindAnyObjectByType<PrizivacTetramina>().NoviTetramin();
+                IzbrisiRed();
+                FindObjectOfType<PrizivacTetramina>().ObnoviRecenicu();
+                this.enabled = false;
             }
 
             // RESTARTOVANJE PROSLOG VREMENA 
@@ -133,7 +136,7 @@ public class TetrisBlock : MonoBehaviour
 
     void Izbrisi(int y)
     {
-        for (int x = 0; x < sirina; ++x)
+        for (int x = 0; x < sirina; x++)
         {
             Destroy(mrezaPolja[x, y].gameObject);
             mrezaPolja[x, y] = null;
@@ -142,7 +145,7 @@ public class TetrisBlock : MonoBehaviour
 
     bool PunaLinija(int y)
     {
-        for (int x = 0; x < sirina; ++x)
+        for (int x = 0; x < sirina; x++)
             if (mrezaPolja[x, y] == null)
                 return false;
         return true;
@@ -150,7 +153,7 @@ public class TetrisBlock : MonoBehaviour
 
     void RedDole(int y)
     {
-        for (int x = 0; x < sirina; ++x)
+        for (int x = 0; x < sirina; x++)
         {
             if (mrezaPolja[x, y] != null)
             {
@@ -163,14 +166,14 @@ public class TetrisBlock : MonoBehaviour
     void IzbrisiRed()
     {
         // BRISE REDOVE KOJI IMAJU PUNU LINIJU I ONDA SPUSTA SVE BLOKOVE KOJI PLUTAJU
-        for (int y = 0; y < visina; ++y)
+        for (int y = 0; y < visina; y++)
         {
             if (PunaLinija(y))
             {
-                Kontroler.skor++;
+                PovecajSkor();
                 Izbrisi(y);
                 RedoviDole(y + 1);
-                --y;
+                y--;
             }
         }
     }
@@ -217,5 +220,22 @@ public class TetrisBlock : MonoBehaviour
             }
         }
         return true;
+    }
+
+    void PovecajSkor()
+    {
+        switch (Podaci.lik)
+        {
+            case Podaci.Likovi.ZanJoahimGorio: Podaci.trenutniSkor_1++; break;
+            case Podaci.Likovi.AnastasijaDeRestau: Podaci.trenutniSkor_2++; break;
+            case Podaci.Likovi.DelfinaNukingen: Podaci.trenutniSkor_3++; break;
+            case Podaci.Likovi.GrofErnestoDeResto: Podaci.trenutniSkor_4++; break;
+            case Podaci.Likovi.EzenDeRastinjak: Podaci.trenutniSkor_5++; break;
+            case Podaci.Likovi.MadamVaukuer: Podaci.trenutniSkor_6++; break;
+            case Podaci.Likovi.Vautrin: Podaci.trenutniSkor_7++; break;
+            case Podaci.Likovi.MadamDeBeusant: Podaci.trenutniSkor_8++; break;
+            case Podaci.Likovi.HoracieBiancon: Podaci.trenutniSkor_9++; break;
+            case Podaci.Likovi.OnoreDeBalzak: Podaci.trenutniSkor_10++; break;
+        }
     }
 }
