@@ -1,6 +1,19 @@
+using UnityEngine;
+
 public static class Podaci
 {
     public static Likovi lik;
+    public static int brojReci_1 = 21;
+    public static int brojReci_2 = 41;
+    public static int brojReci_3 = 33;
+    public static int brojReci_4 = 34;
+    public static int brojReci_5 = 27;
+    public static int brojReci_6 = 28;
+    public static int brojReci_7 = 23;
+    public static int brojReci_8 = 18;
+    public static int brojReci_9 = 31;
+    public static int brojReci_10 = 22;
+
     public static int trenutniSkor_1 = 0;
     public static int trenutniSkor_2 = 0;
     public static int trenutniSkor_3 = 0;
@@ -11,16 +24,17 @@ public static class Podaci
     public static int trenutniSkor_8 = 0;
     public static int trenutniSkor_9 = 0;
     public static int trenutniSkor_10 = 0;
-    public static int brojReci_1 = 21;
-    public static int brojReci_2 = 41;
-    public static int brojReci_3 = 33;
-    public static int brojReci_4 = 34;
-    public static int brojReci_5 = 27;
-    public static int brojReci_6 = 28;
-    public static int brojReci_7 = 23;
-    public static int brojReci_8 = 18;
-    public static int brojReci_9 = 32;
-    public static int brojReci_10 = 22;
+
+    public static bool nivo_1 = false;
+    public static bool nivo_2 = false;
+    public static bool nivo_3 = false;
+    public static bool nivo_4 = false;
+    public static bool nivo_5 = false;
+    public static bool nivo_6 = false;
+    public static bool nivo_7 = false;
+    public static bool nivo_8 = false;
+    public static bool nivo_9 = false;
+    public static bool nivo_10 = false;
     public enum Likovi
     {
         ZanJoahimGorio,
@@ -35,16 +49,16 @@ public static class Podaci
         OnoreDeBalzak,
     }
     public static readonly string[] imenaLikova = {
-        "Zan Joahim Gorio",
-        "Anastasija de Restau",
+        "Žan Joakim Gorio",
+        "Anastasija de Ruso",
         "Delfina Nukingen",
         "Grof Ernesto de Resto",
-        "Ezen de Rastinjak",
-        "Madam Vaukuer",
-        "Vautrin",
-        "Madam de Beusant",
-        "Horacie Biancon",
-        "Onore de Balzak",
+        "Ežen de Rastinjak",
+        "Madam Voker",
+        "Votren",
+        "Madam de Busant",
+        "Horacie Biančon",
+        "Onore de Balžak",
     };
     public static readonly string[] recenice = {
         "Čiča Gorio treba da se suoči sa činjenicom da njegove ćerke nisu toliko zainteresovane za njega koliko je želeo da veruje.",
@@ -92,8 +106,8 @@ public static class Podaci
 
         string rezultat = string.Join(" ", novaRecenica);
 
-        if (trenutniSkor == brojReci)
-            return $"<color=#384D79>{rezultat}</color>";
+        if (trenutniSkor >= brojReci)
+            return $"<color=#004D79>{rezultat}</color>";
         else
             return rezultat;
     }

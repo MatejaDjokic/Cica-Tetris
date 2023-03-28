@@ -25,7 +25,7 @@ public class TetrisBlok : MonoBehaviour
         sveBoje.Add(Color.magenta);
         sveBoje.Add(Color.blue);
         sveBoje.Add(Color.cyan);
-        sveBoje.Add(Color.green);
+        sveBoje.Add(new Color(0, 1, 0, 1));
         sveBoje.Add(Color.magenta);
         sveBoje.Add(Color.red);
         sveBoje.Add(Color.yellow);
@@ -35,6 +35,7 @@ public class TetrisBlok : MonoBehaviour
     void Update()
     {
         UnosniKonroler();
+        ProveriSkor();
         KrajIgre();
     }
 
@@ -48,11 +49,13 @@ public class TetrisBlok : MonoBehaviour
             {
                 krajIgre = true;
             }
-        }
-        if (krajIgre)
-        {
-            Debug.Log("Kraj Igre");
-            this.enabled = false;
+
+            if (krajIgre)
+            {
+                Debug.Log("Kraj Igre");
+                this.enabled = false;
+                break;
+            }
         }
     }
 
@@ -110,9 +113,9 @@ public class TetrisBlok : MonoBehaviour
             {
                 transform.position += new Vector3(0, 1, 0);
                 DodajUMrezuPolja();
-                FindAnyObjectByType<PrizivacTetramina>().NoviTetramin();
-                IzbrisiRed();
+                for (int i = 0; i < 2; i++) IzbrisiRed();
                 FindObjectOfType<PrizivacTetramina>().ObnoviRecenicu();
+                FindAnyObjectByType<PrizivacTetramina>().NoviTetramin();
                 this.enabled = false;
             }
 
@@ -226,16 +229,83 @@ public class TetrisBlok : MonoBehaviour
     {
         switch (Podaci.lik)
         {
-            case Podaci.Likovi.ZanJoahimGorio: Podaci.trenutniSkor_1++; break;
-            case Podaci.Likovi.AnastasijaDeRestau: Podaci.trenutniSkor_2++; break;
-            case Podaci.Likovi.DelfinaNukingen: Podaci.trenutniSkor_3++; break;
-            case Podaci.Likovi.GrofErnestoDeResto: Podaci.trenutniSkor_4++; break;
-            case Podaci.Likovi.EzenDeRastinjak: Podaci.trenutniSkor_5++; break;
-            case Podaci.Likovi.MadamVaukuer: Podaci.trenutniSkor_6++; break;
-            case Podaci.Likovi.Vautrin: Podaci.trenutniSkor_7++; break;
-            case Podaci.Likovi.MadamDeBeusant: Podaci.trenutniSkor_8++; break;
-            case Podaci.Likovi.HoracieBiancon: Podaci.trenutniSkor_9++; break;
-            case Podaci.Likovi.OnoreDeBalzak: Podaci.trenutniSkor_10++; break;
+            case Podaci.Likovi.ZanJoahimGorio:
+                Podaci.trenutniSkor_1++;
+                break;
+            case Podaci.Likovi.AnastasijaDeRestau:
+                Podaci.trenutniSkor_2++;
+                break;
+            case Podaci.Likovi.DelfinaNukingen:
+                Podaci.trenutniSkor_3++;
+                break;
+            case Podaci.Likovi.GrofErnestoDeResto:
+                Podaci.trenutniSkor_4++;
+                break;
+            case Podaci.Likovi.EzenDeRastinjak:
+                Podaci.trenutniSkor_5++;
+                break;
+            case Podaci.Likovi.MadamVaukuer:
+                Podaci.trenutniSkor_6++;
+                break;
+            case Podaci.Likovi.Vautrin:
+                Podaci.trenutniSkor_7++;
+                break;
+            case Podaci.Likovi.MadamDeBeusant:
+                Podaci.trenutniSkor_8++;
+                break;
+            case Podaci.Likovi.HoracieBiancon:
+                Podaci.trenutniSkor_9++;
+                break;
+            case Podaci.Likovi.OnoreDeBalzak:
+                Podaci.trenutniSkor_10++;
+                break;
+        }
+    }
+
+    void ProveriSkor()
+    {
+        switch (Podaci.lik)
+        {
+            case Podaci.Likovi.ZanJoahimGorio:
+                if (Podaci.trenutniSkor_1 >= Podaci.brojReci_1)
+                    Podaci.nivo_1 = true;
+                break;
+            case Podaci.Likovi.AnastasijaDeRestau:
+                if (Podaci.trenutniSkor_2 >= Podaci.brojReci_2)
+                    Podaci.nivo_2 = true;
+                break;
+            case Podaci.Likovi.DelfinaNukingen:
+                if (Podaci.trenutniSkor_3 >= Podaci.brojReci_3)
+                    Podaci.nivo_3 = true;
+                break;
+            case Podaci.Likovi.GrofErnestoDeResto:
+                if (Podaci.trenutniSkor_4 >= Podaci.brojReci_4)
+                    Podaci.nivo_4 = true;
+                break;
+            case Podaci.Likovi.EzenDeRastinjak:
+                if (Podaci.trenutniSkor_5 >= Podaci.brojReci_5)
+                    Podaci.nivo_5 = true;
+                break;
+            case Podaci.Likovi.MadamVaukuer:
+                if (Podaci.trenutniSkor_6 >= Podaci.brojReci_6)
+                    Podaci.nivo_6 = true;
+                break;
+            case Podaci.Likovi.Vautrin:
+                if (Podaci.trenutniSkor_7 >= Podaci.brojReci_7)
+                    Podaci.nivo_7 = true;
+                break;
+            case Podaci.Likovi.MadamDeBeusant:
+                if (Podaci.trenutniSkor_8 >= Podaci.brojReci_8)
+                    Podaci.nivo_8 = true;
+                break;
+            case Podaci.Likovi.HoracieBiancon:
+                if (Podaci.trenutniSkor_9 >= Podaci.brojReci_9)
+                    Podaci.nivo_9 = true;
+                break;
+            case Podaci.Likovi.OnoreDeBalzak:
+                if (Podaci.trenutniSkor_10 >= Podaci.brojReci_10)
+                    Podaci.nivo_10 = true;
+                break;
         }
     }
 }

@@ -234,9 +234,9 @@ RectTransform:
   m_Father: {fileID: 2001845464}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 407, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &78661656
@@ -689,7 +689,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296410852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u017Dan Joajim Gorio"
+  m_text: "\u017Dan Joakim Gorio"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
   m_sharedMaterial: {fileID: 8639307409883142590, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
@@ -1233,6 +1233,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c8504fe60d4da4a8933a6d74762e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slikaZanJoahimGorio: {fileID: 1652204109}
+  slikaAnastasijaDeRestau: {fileID: 2139856604}
+  slikaDelfinaNukingen: {fileID: 694211060}
+  slikaGrofErnestoDeResto: {fileID: 2083116088}
+  slikaEzenDeRastinjak: {fileID: 470044999}
+  slikaMadamVaukuer: {fileID: 1170370549}
+  slikaVautrin: {fileID: 6995657}
+  slikaMadamDeBeusant: {fileID: 1687194554}
+  slikaHoracieBiancon: {fileID: 1293062569}
+  slikaOnoreDeBalzak: {fileID: 222889111}
 --- !u!1 &672958541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 672958542}
+  - component: {fileID: 672958543}
   m_Layer: 5
   m_Name: Drugi Red
   m_TagString: Untagged
@@ -1271,9 +1282,35 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -108.75}
-  m_SizeDelta: {x: 0, y: 217.5}
+  m_AnchoredPosition: {x: 0, y: -180}
+  m_SizeDelta: {x: -200, y: 217.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &672958543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672958541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &694211058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,7 +1732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Madam Vaukuer
+  m_text: Madam Voker
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
   m_sharedMaterial: {fileID: 8639307409883142590, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
@@ -1807,9 +1844,9 @@ RectTransform:
   m_Father: {fileID: 2001845464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -413, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &904228978
@@ -1903,9 +1940,9 @@ RectTransform:
   m_Father: {fileID: 2001845464}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 202, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &906247747
@@ -2402,9 +2439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Vautrin
-
-'
+  m_text: Votren
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
   m_sharedMaterial: {fileID: 8639307409883142590, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
@@ -2615,7 +2650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Onore de Balzak
+  m_text: "Onore de Bal\u017Eak"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
   m_sharedMaterial: {fileID: 8639307409883142590, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
@@ -2765,9 +2800,9 @@ RectTransform:
   m_Father: {fileID: 672958542}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 414, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509587831
@@ -2861,9 +2896,9 @@ RectTransform:
   m_Father: {fileID: 2001845464}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -208, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569191581
@@ -3033,9 +3068,9 @@ RectTransform:
   m_Father: {fileID: 672958542}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 209, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1645860630
@@ -3205,9 +3240,9 @@ RectTransform:
   m_Father: {fileID: 672958542}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674028851
@@ -3512,9 +3547,9 @@ RectTransform:
   m_Father: {fileID: 2001845464}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697983119
@@ -3631,7 +3666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Madam\n de Beusant\n"
+  m_text: "Madam\n de Busant\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
   m_sharedMaterial: {fileID: 8639307409883142590, guid: 9438c272f229f664d9314259c6f42af5, type: 2}
@@ -3946,9 +3981,9 @@ RectTransform:
   m_Father: {fileID: 672958542}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -201, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1811689049
@@ -4042,9 +4077,9 @@ RectTransform:
   m_Father: {fileID: 672958542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -406, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1856918791
@@ -4161,7 +4196,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Anastazija de Restau
+  m_text: 'Anastazija de Ruso
 
 '
   m_isRightToLeft: 0
@@ -4249,6 +4284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001845464}
+  - component: {fileID: 2001845465}
   m_Layer: 5
   m_Name: Prvi Red
   m_TagString: Untagged
@@ -4278,9 +4314,35 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 108.75}
-  m_SizeDelta: {x: 0, y: 217.5}
+  m_AnchoredPosition: {x: 0, y: 138}
+  m_SizeDelta: {x: -200, y: 217.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2001845465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001845463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &2031018090
 GameObject:
   m_ObjectHideFlags: 0
