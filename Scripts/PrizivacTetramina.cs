@@ -9,6 +9,8 @@ public class PrizivacTetramina : MonoBehaviour
     public TextMeshProUGUI recenica;
     public TextMeshProUGUI brojacText;
     public GameObject gumbDalje;
+    public GameObject krajIgreTekst;
+    public GameObject restartujTekst;
     void Start()
     {
         NoviTetramin();
@@ -19,6 +21,17 @@ public class PrizivacTetramina : MonoBehaviour
         Instantiate(tetramini[Random.Range(0, tetramini.Length)], transform.position, Quaternion.identity, roditelj.transform);
         ObnoviRecenicu();
     }
+
+    public void KrajIgre()
+    {
+        krajIgreTekst.SetActive(true);
+        restartujTekst.SetActive(true);
+    }
+
+    public void Gore() { FindObjectOfType<TetrisBlok>().Gore(); }
+    public void Dole() { FindObjectOfType<TetrisBlok>().Dole(); }
+    public void Levo() { FindObjectOfType<TetrisBlok>().Levo(); }
+    public void Desno() { FindObjectOfType<TetrisBlok>().Desno(); }
 
     public void ObnoviRecenicu()
     {
@@ -36,6 +49,11 @@ public class PrizivacTetramina : MonoBehaviour
             case Podaci.Likovi.HoracieBiancon: gumbDalje.SetActive(Podaci.nivo_9); recenica.text = Podaci.ZameniSaDonjimCrtama(8); brojacText.text = Podaci.trenutniSkor_9 + "/" + Podaci.brojReci_9; break;
             case Podaci.Likovi.OnoreDeBalzak: gumbDalje.SetActive(Podaci.nivo_10); recenica.text = Podaci.ZameniSaDonjimCrtama(9); brojacText.text = Podaci.trenutniSkor_10 + "/" + Podaci.brojReci_10; break;
         }
+    }
+
+    public void UcitajLikove()
+    {
+        SceneManager.LoadScene("Likovi");
     }
 
     public void RestartujTetris()

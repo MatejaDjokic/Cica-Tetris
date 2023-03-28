@@ -41,7 +41,7 @@ public class TetrisBlok : MonoBehaviour
         // IGRA JE GOTOVA
         for (int i = 0; i < sirina; i++)
         {
-            if (mrezaPolja[i, 16] != null)
+            if (mrezaPolja[i, 14] != null)
             {
                 krajIgre = true;
             }
@@ -50,6 +50,7 @@ public class TetrisBlok : MonoBehaviour
             {
                 Debug.Log("Kraj Igre");
                 this.enabled = false;
+                FindObjectOfType<PrizivacTetramina>().KrajIgre();
                 break;
             }
         }
@@ -67,69 +68,84 @@ public class TetrisBlok : MonoBehaviour
         moguceBoje.RemoveAt(indeks);
     }
 
+    public void Levo()
+    {
+        // AKO JE STRELICA LEVO PRITISNUTA POMERA BLOK ZA 1 U LEVO
+        transform.position += new Vector3(-1, 0, 0);
+
+        // PROVERAVAMO DA LI JE SL KORAK VALIDAN
+        // AKO NIJE VRACAMO NAZAD POMERENI BLOK
+        if (!SledeciKorakValidan())
+        {
+            transform.position += new Vector3(1, 0, 0);
+        }
+        prosloVremeLevo = Time.time;
+    }
+    public void Desno()
+    {
+        // AKO JE STRELICA DESNO PRITISNUTA POMERA BLOK ZA 1 U DESNO
+        transform.position += new Vector3(1, 0, 0);
+
+        // PROVERAVAMO DA LI JE SL KORAK VALIDAN
+        // AKO NIJE VRACAMO NAZAD POMERENI BLOK
+        if (!SledeciKorakValidan())
+        {
+            transform.position -= new Vector3(1, 0, 0);
+        }
+        prosloVremeDesno = Time.time;
+    }
+    public void Gore()
+    {
+        // AKO JE STRELICA NA GORE PRITISNUTA ROTIRAMO X OSU TETRAMINA
+        // ZA 90 STEPENI OKO ROTACIONE TACKE KOJU PRVO
+        // IZ GLOBALNIH PRETVARAMO U LOKALNE KORDINATE
+        Vector3 lokalnaRotacionaTacka = transform.TransformPoint(rotacionaTacka);
+        transform.RotateAround(lokalnaRotacionaTacka, new Vector3(0, 0, 1), 90);
+
+        if (!SledeciKorakValidan())
+        {
+            transform.RotateAround(lokalnaRotacionaTacka, new Vector3(0, 0, 1), -90);
+        }
+    }
+    public void Dole()
+    {
+        // BLOK TSE TAJMIRANO SPUSTA ZA 1 KA DOLE
+        // AKO JE STRELICA DOLE PRITISNUTA UBRZAV A POMERANJE BLOKA KA DOLE
+        transform.position += new Vector3(0, -1, 0);
+
+        // PROVERAVAMO DA LI JE SL KORAK VALIDAN
+        // AKO NIJE VRACAMO NAZAD POMERENI BLOK
+        // TAKODJE DODAJEMO SVU DECU BLOKOVE TETRAMINA 
+        if (!SledeciKorakValidan())
+        {
+            transform.position += new Vector3(0, 1, 0);
+            DodajUMrezuPolja();
+            for (int i = 0; i < 2; i++) IzbrisiRed();
+            FindObjectOfType<PrizivacTetramina>().ObnoviRecenicu();
+            FindAnyObjectByType<PrizivacTetramina>().NoviTetramin();
+            this.enabled = false;
+        }
+
+        // RESTARTOVANJE PROSLOG VREMENA 
+        prosloVreme = Time.time;
+    }
     void UnosniKonroler()
     {
         if (Input.GetKey(KeyCode.LeftArrow) && Time.time - prosloVremeLevo > vremePadanjaPomeranjaLevo)
         {
-
-            // AKO JE STRELICA LEVO PRITISNUTA POMERA BLOK ZA 1 U LEVO
-            transform.position += new Vector3(-1, 0, 0);
-
-            // PROVERAVAMO DA LI JE SL KORAK VALIDAN
-            // AKO NIJE VRACAMO NAZAD POMERENI BLOK
-            if (!SledeciKorakValidan())
-            {
-                transform.position += new Vector3(1, 0, 0);
-            }
-            prosloVremeLevo = Time.time;
+            Levo();
         }
         else if (Input.GetKey(KeyCode.RightArrow) && Time.time - prosloVremeDesno > vremePadanjaPomeranjaDesno)
         {
-            // AKO JE STRELICA DESNO PRITISNUTA POMERA BLOK ZA 1 U DESNO
-            transform.position += new Vector3(1, 0, 0);
-
-            // PROVERAVAMO DA LI JE SL KORAK VALIDAN
-            // AKO NIJE VRACAMO NAZAD POMERENI BLOK
-            if (!SledeciKorakValidan())
-            {
-                transform.position -= new Vector3(1, 0, 0);
-            }
-            prosloVremeDesno = Time.time;
+            Desno();
         }
         if (Time.time - prosloVreme > (Input.GetKey(KeyCode.DownArrow) ? vremePadanja / 10 : vremePadanja))
         {
-            // BLOK TSE TAJMIRANO SPUSTA ZA 1 KA DOLE
-            // AKO JE STRELICA DOLE PRITISNUTA UBRZAV A POMERANJE BLOKA KA DOLE
-            transform.position += new Vector3(0, -1, 0);
-
-            // PROVERAVAMO DA LI JE SL KORAK VALIDAN
-            // AKO NIJE VRACAMO NAZAD POMERENI BLOK
-            // TAKODJE DODAJEMO SVU DECU BLOKOVE TETRAMINA 
-            if (!SledeciKorakValidan())
-            {
-                transform.position += new Vector3(0, 1, 0);
-                DodajUMrezuPolja();
-                for (int i = 0; i < 2; i++) IzbrisiRed();
-                FindObjectOfType<PrizivacTetramina>().ObnoviRecenicu();
-                FindAnyObjectByType<PrizivacTetramina>().NoviTetramin();
-                this.enabled = false;
-            }
-
-            // RESTARTOVANJE PROSLOG VREMENA 
-            prosloVreme = Time.time;
+            Dole();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            // AKO JE STRELICA NA GORE PRITISNUTA ROTIRAMO X OSU TETRAMINA
-            // ZA 90 STEPENI OKO ROTACIONE TACKE KOJU PRVO
-            // IZ GLOBALNIH PRETVARAMO U LOKALNE KORDINATE
-            Vector3 lokalnaRotacionaTacka = transform.TransformPoint(rotacionaTacka);
-            transform.RotateAround(lokalnaRotacionaTacka, new Vector3(0, 0, 1), 90);
-
-            if (!SledeciKorakValidan())
-            {
-                transform.RotateAround(lokalnaRotacionaTacka, new Vector3(0, 0, 1), -90);
-            }
+            Gore();
         }
     }
 
