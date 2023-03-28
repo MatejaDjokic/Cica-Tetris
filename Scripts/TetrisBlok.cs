@@ -3,10 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 public class TetrisBlok : MonoBehaviour
 {
-
-    Transform mrezaPoljaJI;
-    Transform mrezaPoljaJI_minus;
-
     public Vector3 rotacionaTacka;
     private float prosloVreme;
     private float prosloVremeLevo;
@@ -83,7 +79,7 @@ public class TetrisBlok : MonoBehaviour
             // AKO NIJE VRACAMO NAZAD POMERENI BLOK
             if (!SledeciKorakValidan())
             {
-                transform.position -= new Vector3(-1, 0, 0);
+                transform.position += new Vector3(1, 0, 0);
             }
             prosloVremeLevo = Time.time;
         }
@@ -127,12 +123,12 @@ public class TetrisBlok : MonoBehaviour
             // AKO JE STRELICA NA GORE PRITISNUTA ROTIRAMO X OSU TETRAMINA
             // ZA 90 STEPENI OKO ROTACIONE TACKE KOJU PRVO
             // IZ GLOBALNIH PRETVARAMO U LOKALNE KORDINATE
-            Vector3 lokalnaRotacionaTack = transform.TransformPoint(rotacionaTacka);
-            transform.RotateAround(lokalnaRotacionaTack, new Vector3(0, 0, 1), 90);
+            Vector3 lokalnaRotacionaTacka = transform.TransformPoint(rotacionaTacka);
+            transform.RotateAround(lokalnaRotacionaTacka, new Vector3(0, 0, 1), 90);
 
             if (!SledeciKorakValidan())
             {
-                transform.RotateAround(lokalnaRotacionaTack, new Vector3(0, 0, 1), -90);
+                transform.RotateAround(lokalnaRotacionaTacka, new Vector3(0, 0, 1), -90);
             }
         }
     }
@@ -162,7 +158,7 @@ public class TetrisBlok : MonoBehaviour
             {
                 mrezaPolja[x, y - 1] = mrezaPolja[x, y];
                 mrezaPolja[x, y] = null;
-                mrezaPolja[x, y - 1].position += new Vector3(0, -1, 0);
+                mrezaPolja[x, y - 1].position -= new Vector3(0, 1, 0);
             }
         }
     }

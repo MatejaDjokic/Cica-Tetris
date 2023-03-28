@@ -38,10 +38,6 @@ public class PrizivacTetramina : MonoBehaviour
         }
     }
 
-    public void UcitajLikoviScenu()
-    {
-        SceneManager.LoadScene("Likovi");
-    }
     public void RestartujTetris()
     {
         switch (Podaci.lik)
