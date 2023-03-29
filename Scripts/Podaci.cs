@@ -14,16 +14,16 @@ public static class Podaci
     public static int brojReci_9 = 31;
     public static int brojReci_10 = 22;
 
-    public static int trenutniSkor_1 = 0;
-    public static int trenutniSkor_2 = 0;
-    public static int trenutniSkor_3 = 0;
-    public static int trenutniSkor_4 = 0;
-    public static int trenutniSkor_5 = 0;
-    public static int trenutniSkor_6 = 0;
-    public static int trenutniSkor_7 = 0;
-    public static int trenutniSkor_8 = 0;
-    public static int trenutniSkor_9 = 0;
-    public static int trenutniSkor_10 = 0;
+    public static int trenutniSkor_1 = 21-1;
+    public static int trenutniSkor_2 = 41-1;
+    public static int trenutniSkor_3 = 33-1;
+    public static int trenutniSkor_4 = 34-1;
+    public static int trenutniSkor_5 = 27-1;
+    public static int trenutniSkor_6 = 28-1;
+    public static int trenutniSkor_7 = 23-1;
+    public static int trenutniSkor_8 = 18-1;
+    public static int trenutniSkor_9 = 31-1;
+    public static int trenutniSkor_10 =  22-1;
 
     public static bool nivo_1 = false;
     public static bool nivo_2 = false;
